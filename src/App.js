@@ -5,8 +5,8 @@ import Carousel from "./Carousel";
 export default function App() {
   return (
     <div className="App h-full">
-      <h1 className="text-blue-800 text-3xl my-4">React + Tailwind Carousel</h1>
-      <h2 className="text-2xl mb-10">It's a carousel.</h2>
+      <h1 className="text-blue-800 text-3xl my-4">SlideAround Carousel</h1>
+      <h2 className="text-2xl mb-10">Carousel for React + Tailwind CSS</h2>
 
       <Carousel style={{ aspectRatio: "16 /9" }}>
         <div>
