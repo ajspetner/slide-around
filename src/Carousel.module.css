@@ -1,0 +1,11 @@
+.container {
+  width: 200%;
+  margin-right: 100%;
+}
+
+.frame {
+  transition: margin 0.5s linear 0s;
+}
+.container.scrolled .frame:first-child {
+  margin-left: -100%;
+}
