@@ -1,2 +1,3 @@
-# slide-around
-Created with CodeSandbox
+# SlideAround Carousel (React + Tailwind CSS)
+
+Simple React Carousel. Work in progress.
