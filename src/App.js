@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./tailwind.css";
 import Carousel from "./Carousel";
 
 export default function App() {
