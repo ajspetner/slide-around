@@ -1,9 +1,29 @@
-.container {
-}
-
 .frame {
-  transition: margin 0.5s linear 0s;
+  transition: transform 0.5s linear 0s;
 }
-.container.scrolled .frame:first-child {
-  margin-left: -100%;
+.frame.current {
+  left: 0px;
+}
+.frame.enteringFromLeft {
+  left: 0px;
+  transform: translateX(-100%);
+  transition: none;
+}
+.frame.enteringFromRight {
+  left: 0px;
+  transform: translateX(100%);
+  transition: none;
+}
+.frame.exitingLeft {
+  left: -100%;
+  transform: translateX(100%);
+  transition: none;
+}
+.frame.exitingRight {
+  left: 100%;
+  transform: translateX(-100%);
+  transition: none;
+}
+.frame.exitedLeft {
+  left: -100%;
 }
