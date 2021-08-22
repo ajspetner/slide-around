@@ -37,7 +37,7 @@ export default function Carousel({ style, className, children }) {
 
   const frames = children.map((elem, key) => (
     <div
-      className={`${styles.frame} float-left h-full w-1/2 whitespace-normal inline-block`}
+      className={`${styles.frame} absolute left-full h-full w-1/2`}
       key={key}
     >
       {elem}
@@ -55,7 +55,7 @@ export default function Carousel({ style, className, children }) {
         <div
           ref={refContainer}
           onTransitionEnd={transitionEnd}
-          className={`${styles.container} h-full whitespace-nowrap`}
+          className={`${styles.container} h-full w-full relative`}
         >
           {frames}
         </div>
