@@ -29,8 +29,8 @@ export default function App() {
         keep it nearby.`
     }
   ];
-  const frames = carouselContent.map((i) => (
-    <div className="text-center">
+  const frames = carouselContent.map((i, key) => (
+    <div className="text-center" key={key}>
       <h2 className="m-10 text-center font-bold text-2xl">{i.title}</h2>
       <p>{i.body}</p>
     </div>
