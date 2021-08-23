@@ -30,7 +30,7 @@ export default function App() {
     }
   ];
   const frames = carouselContent.map((i, key) => (
-    <div key={key}>
+    <div key={key} class="frame">
       <h2>{i.title}</h2>
       <p>{i.body}</p>
     </div>

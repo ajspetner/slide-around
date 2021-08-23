@@ -15,8 +15,21 @@
 }
 
 .carousel h2 {
-  margin: 40px;
+  margin-top: 0px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
   font-size: 2rem;
+}
+.carousel p {
+  margin: 0px;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0px 10%;
+  box-sizing: border-box;
 }

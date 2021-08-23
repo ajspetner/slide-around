@@ -9,7 +9,30 @@ const TRANSITIONS = {
   exitedLeft: {}
 };
 
-export default function Carousel({ style, className, children }) {
+const BUTTON_LEFT = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.46 228.97">
+    <polyline
+      points="122.97 8.48 16.97 114.48 122.97 220.49"
+      style={{ fill: "none", strokeMiterlimit: 10 }}
+    />
+  </svg>
+);
+const BUTTON_RIGHT = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.46 228.97">
+    <polyline
+      points="8.48 8.48 114.48 114.48 8.48 220.49"
+      style={{ fill: "none", strokeMiterlimit: 10 }}
+    />
+  </svg>
+);
+
+export default function Carousel({
+  style,
+  className,
+  children,
+  buttonLeftContent,
+  buttonRightContent
+}) {
   const [curFrame, setCurFrame] = React.useState("");
   const [transitions, setTransitions] = React.useState(TRANSITIONS);
 
@@ -89,13 +112,13 @@ export default function Carousel({ style, className, children }) {
         onClick={scroll.bind(this, 1)}
         className={`${styles.nav} ${styles.left}`}
       >
-        &lt;
+        {buttonLeftContent || BUTTON_LEFT}
       </button>
       <button
         onClick={scroll.bind(this, -1)}
         className={`${styles.nav} ${styles.right}`}
       >
-        &gt;
+        {buttonRightContent || BUTTON_RIGHT}
       </button>
     </div>
   );
