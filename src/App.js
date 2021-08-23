@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>SlideAround Carousel</h1>
-      <h2>Carousel for React + Tailwind CSS</h2>
+      <h2>Fast and lightweight React Carousel.</h2>
 
       <Carousel className="carousel">{frames}</Carousel>
     </div>
