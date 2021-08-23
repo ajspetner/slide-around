@@ -1,12 +1,12 @@
 import React from "react";
-import "./tailwind.css";
+import "./styles.css";
 import Carousel from "./Carousel";
 
 export default function App() {
   const carouselContent = [
     {
       title: "Frame A",
-      body: `Frame a is a nice frame. It has nice stuff. I want to be like frame
+      body: `Frame A is a nice frame. It has nice stuff. I want to be like frame
         A when I get older.`
     },
     {
@@ -30,21 +30,17 @@ export default function App() {
     }
   ];
   const frames = carouselContent.map((i, key) => (
-    <div className="text-center" key={key}>
-      <h2 className="m-10 text-center font-bold text-2xl">{i.title}</h2>
+    <div key={key}>
+      <h2>{i.title}</h2>
       <p>{i.body}</p>
     </div>
   ));
   return (
-    <div className="App h-full">
-      <h1 className="text-center text-blue-800 text-3xl my-4">
-        SlideAround Carousel
-      </h1>
-      <h2 className="text-center text-2xl mb-10">
-        Carousel for React + Tailwind CSS
-      </h2>
+    <div className="App">
+      <h1>SlideAround Carousel</h1>
+      <h2>Carousel for React + Tailwind CSS</h2>
 
-      <Carousel style={{ aspectRatio: "16 /9" }}>{frames}</Carousel>
+      <Carousel className="carousel">{frames}</Carousel>
     </div>
   );
 }

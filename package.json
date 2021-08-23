@@ -6,22 +6,18 @@
   "main": "src/index.js",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "autoprefixer": "10.3.2",
-    "postcss": "8.3.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-scripts": "4.0.3",
-    "tailwindcss": "2.2.7"
+    "react-scripts": "4.0.3"
   },
   "devDependencies": {
     "typescript": "3.3.3"
   },
   "scripts": {
-    "start": "TAILWIND_MODE=watch npm run build:style && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build:style": "tailwind build src/styles.css -o src/tailwind.css"
+    "eject": "react-scripts eject"
   },
   "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }

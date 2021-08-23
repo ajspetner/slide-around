@@ -40,7 +40,7 @@ export default function Carousel({ style, className, children }) {
             : ""
         } ${
           transitions.exitedLeft.key === key.toString() ? styles.exitedLeft : ""
-        } absolute left-full w-full h-full p-10`}
+        }`}
         key={key}
       >
         {elem}
@@ -80,22 +80,20 @@ export default function Carousel({ style, className, children }) {
 
   return (
     <div
-      style={style || ""}
-      className={`w-1/2 mx-auto border border-black border-solid relative ${
-        className || ""
-      }`}
+      style={style || {}}
+      className={`${className || ""} ${styles.carousel}`}
     >
-      <div className="h-full w-full relative overflow-hidden">{frames}</div>
+      <div className={`${styles.frames} `}>{frames}</div>
 
       <button
         onClick={scroll.bind(this, 1)}
-        className="focus:outline-none absolute bg-red-700 text-white left-0 -ml-5 top-0 bottom-0 my-auto rounded-full w-10 h-10"
+        className={`${styles.nav} ${styles.left}`}
       >
         &lt;
       </button>
       <button
         onClick={scroll.bind(this, -1)}
-        className="focus:outline-none absolute bg-red-700 text-white right-0 -mr-5 top-0 bottom-0 my-auto rounded-full w-10 h-10"
+        className={`${styles.nav} ${styles.right}`}
       >
         &gt;
       </button>

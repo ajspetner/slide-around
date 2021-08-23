@@ -1,3 +1,3 @@
-# SlideAround Carousel (React + Tailwind CSS)
+# SlideAround Carousel for React
 
-Simple React Carousel. Work in progress.
+Fast and lightweight React Carousel. Work in progress.
