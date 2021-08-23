@@ -85,9 +85,8 @@ export default function Carousel({ style, className, children }) {
         className || ""
       }`}
     >
-      <div className="w-full h-full relative overflow-hidden">
-        <div className="h-full w-full relative">{frames}</div>
-      </div>
+      <div className="h-full w-full relative overflow-hidden">{frames}</div>
+
       <button
         onClick={scroll.bind(this, 1)}
         className="focus:outline-none absolute bg-red-700 text-white left-0 -ml-5 top-0 bottom-0 my-auto rounded-full w-10 h-10"
