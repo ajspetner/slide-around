@@ -44,7 +44,7 @@ export default function App() {
         className="carousel"
         options={{
           buttons: {
-            style: { stroke: "#fff" }
+            svgStyle: { stroke: "#fff" }
           }
         }}
       >

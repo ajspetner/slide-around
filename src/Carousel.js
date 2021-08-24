@@ -35,13 +35,16 @@ export default function Carousel({
     buttons: {
       left: {
         content: null,
-        style: {}
+        style: {},
+        svgStyle: {}
       },
       right: {
         content: null,
-        style: {}
+        style: {},
+        svgStyle: {}
       },
-      style: {}
+      style: {},
+      svgStyle: {}
     }
   });
 
@@ -50,14 +53,16 @@ export default function Carousel({
       className={styles.chevron}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 131.46 228.97"
+      style={{
+        ...mergedOptions.buttons.svgStyle,
+        ...mergedOptions.buttons.left.svgStyle
+      }}
     >
       <polyline
         points="122.97 8.48 16.97 114.48 122.97 220.49"
         style={{
           fill: "none",
-          strokeMiterlimit: 10,
-          ...mergedOptions.buttons.style,
-          ...mergedOptions.buttons.left.style
+          strokeMiterlimit: 10
         }}
       />
     </svg>
@@ -67,14 +72,16 @@ export default function Carousel({
       className={styles.chevron}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 131.46 228.97"
+      style={{
+        ...mergedOptions.buttons.svgStyle,
+        ...mergedOptions.buttons.right.svgStyle
+      }}
     >
       <polyline
         points="8.48 8.48 114.48 114.48 8.48 220.49"
         style={{
           fill: "none",
-          strokeMiterlimit: 10,
-          ...mergedOptions.buttons.style,
-          ...mergedOptions.buttons.right.style
+          strokeMiterlimit: 10
         }}
       />
     </svg>
