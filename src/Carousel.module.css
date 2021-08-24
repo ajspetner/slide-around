@@ -18,8 +18,6 @@
   border-radius: 100%;
   cursor: pointer;
   border: none;
-  stroke: #000;
-  stroke-width: 24px;
 }
 .nav:focus {
   outline: none;
@@ -32,9 +30,17 @@
   right: 0px;
   transform: translateX(-25%);
 }
-.nav svg {
+.nav .chevron {
   height: 100%;
+  stroke-width: 24px;
+  stroke: #000;
+  opacity: 25%;
 }
+
+.nav:hover .chevron {
+  opacity: 50%;
+}
+
 .frame {
   position: absolute;
   left: 100%;

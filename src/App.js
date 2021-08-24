@@ -30,7 +30,7 @@ export default function App() {
     }
   ];
   const frames = carouselContent.map((i, key) => (
-    <div key={key} class="frame">
+    <div key={key} className="frame">
       <h2>{i.title}</h2>
       <p>{i.body}</p>
     </div>
@@ -40,7 +40,16 @@ export default function App() {
       <h1>SlideAround Carousel</h1>
       <h2>Fast and lightweight React Carousel.</h2>
 
-      <Carousel className="carousel">{frames}</Carousel>
+      <Carousel
+        className="carousel"
+        options={{
+          buttons: {
+            style: { stroke: "#fff" }
+          }
+        }}
+      >
+        {frames}
+      </Carousel>
     </div>
   );
 }

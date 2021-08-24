@@ -9,32 +9,76 @@ const TRANSITIONS = {
   exitedLeft: {}
 };
 
-const BUTTON_LEFT = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.46 228.97">
-    <polyline
-      points="122.97 8.48 16.97 114.48 122.97 220.49"
-      style={{ fill: "none", strokeMiterlimit: 10 }}
-    />
-  </svg>
-);
-const BUTTON_RIGHT = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131.46 228.97">
-    <polyline
-      points="8.48 8.48 114.48 114.48 8.48 220.49"
-      style={{ fill: "none", strokeMiterlimit: 10 }}
-    />
-  </svg>
-);
+const merge = (objFrom, objTo) =>
+  Object.keys(objFrom).reduce(
+    (merged, key) => {
+      merged[key] =
+        objFrom[key] instanceof Object && !Array.isArray(objFrom[key])
+          ? merge(objFrom[key], merged[key] ?? {})
+          : objFrom[key];
+      return merged;
+    },
+    { ...objTo }
+  );
 
 export default function Carousel({
   style,
   className,
   children,
   buttonLeftContent,
-  buttonRightContent
+  buttonRightContent,
+  options
 }) {
   const [curFrame, setCurFrame] = React.useState("");
   const [transitions, setTransitions] = React.useState(TRANSITIONS);
+  const mergedOptions = merge(options || {}, {
+    buttons: {
+      left: {
+        content: null,
+        style: {}
+      },
+      right: {
+        content: null,
+        style: {}
+      },
+      style: {}
+    }
+  });
+
+  mergedOptions.buttons.left.content = mergedOptions.buttons.left.content || (
+    <svg
+      className={styles.chevron}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 131.46 228.97"
+    >
+      <polyline
+        points="122.97 8.48 16.97 114.48 122.97 220.49"
+        style={{
+          fill: "none",
+          strokeMiterlimit: 10,
+          ...mergedOptions.buttons.style,
+          ...mergedOptions.buttons.left.style
+        }}
+      />
+    </svg>
+  );
+  mergedOptions.buttons.right.content = mergedOptions.buttons.right.content || (
+    <svg
+      className={styles.chevron}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 131.46 228.97"
+    >
+      <polyline
+        points="8.48 8.48 114.48 114.48 8.48 220.49"
+        style={{
+          fill: "none",
+          strokeMiterlimit: 10,
+          ...mergedOptions.buttons.style,
+          ...mergedOptions.buttons.right.style
+        }}
+      />
+    </svg>
+  );
 
   const setTransition = (o) => {
     setTransitions({ ...TRANSITIONS, ...o });
@@ -111,14 +155,22 @@ export default function Carousel({
       <button
         onClick={scroll.bind(this, 1)}
         className={`${styles.nav} ${styles.left}`}
+        style={{
+          ...mergedOptions.buttons.style,
+          ...mergedOptions.buttons.left.style
+        }}
       >
-        {buttonLeftContent || BUTTON_LEFT}
+        {mergedOptions.buttons.left.content}
       </button>
       <button
         onClick={scroll.bind(this, -1)}
         className={`${styles.nav} ${styles.right}`}
+        style={{
+          ...mergedOptions.buttons.style,
+          ...mergedOptions.buttons.right.style
+        }}
       >
-        {buttonRightContent || BUTTON_RIGHT}
+        {mergedOptions.buttons.right.content}
       </button>
     </div>
   );
