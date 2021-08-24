@@ -13,7 +13,9 @@ const merge = (objFrom, objTo) =>
   Object.keys(objFrom).reduce(
     (merged, key) => {
       merged[key] =
-        objFrom[key] instanceof Object && !Array.isArray(objFrom[key])
+        objFrom[key] instanceof Object &&
+        !Array.isArray(objFrom[key]) &&
+        !React.isValidElement(objFrom[key])
           ? merge(objFrom[key], merged[key] ?? {})
           : objFrom[key];
       return merged;
