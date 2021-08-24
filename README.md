@@ -9,3 +9,4 @@
 3. Add option for individual step navigation
 4. Allow customization of transition effect and speed
 5. Add swiping
+6. Convert to installable component
